@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FL8-yT-rBf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign Up View Controller-->
+        <scene sceneID="RgP-cg-bI8">
+            <objects>
+                <viewController storyboardIdentifier="SignUp" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FL8-yT-rBf" customClass="SignUpViewController" customModule="MovieDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="slS-pE-u2e">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SignUp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25v-cZ-Zkm">
+                                <rect key="frame" x="179" y="94" width="56" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="4gu-Zq-liT">
+                                <rect key="frame" x="10" y="214.5" width="394" height="420.5"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ma-8R-JuN">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="onChangeEmail:" destination="FL8-yT-rBf" eventType="editingDidEnd" id="Veo-6v-Phj"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dav-wJ-KDQ">
+                                        <rect key="frame" x="0.0" y="64" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="onChangeFirstName:" destination="FL8-yT-rBf" eventType="editingDidEnd" id="tLZ-fY-808"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QmK-XD-s2u">
+                                        <rect key="frame" x="0.0" y="128" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="handleLastNameEditingDone:" destination="FL8-yT-rBf" eventType="primaryActionTriggered" id="RGV-XG-aWy"/>
+                                            <action selector="onChangeLastName:" destination="FL8-yT-rBf" eventType="editingDidEnd" id="hDb-e5-Zez"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vdm-Ai-kwn">
+                                        <rect key="frame" x="0.0" y="192" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="handlePasswordEdidtingDone:" destination="FL8-yT-rBf" eventType="primaryActionTriggered" id="7qb-xE-dgk"/>
+                                            <action selector="onChangePassword:" destination="FL8-yT-rBf" eventType="editingDidEnd" id="Vfe-sB-aMs"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I5h-Fr-ILh">
+                                        <rect key="frame" x="0.0" y="256" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="handlePasswordConfirmEdidtingDone:" destination="FL8-yT-rBf" eventType="primaryActionTriggered" id="tcI-m2-I9f"/>
+                                            <action selector="onChangeConfirmPassword:" destination="FL8-yT-rBf" eventType="editingDidEnd" id="CvH-F8-f65"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kn1-Mg-IU8">
+                                        <rect key="frame" x="0.0" y="320" width="394" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="EKa-43-xSs"/>
+                                        </constraints>
+                                        <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="handleSignUpPress:" destination="FL8-yT-rBf" eventType="touchUpInside" id="vMj-Q6-D4T"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rro-XJ-tXE">
+                                        <rect key="frame" x="0.0" y="400" width="394" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="25v-cZ-Zkm" firstAttribute="centerX" secondItem="slS-pE-u2e" secondAttribute="centerX" id="OjZ-bU-LlO"/>
+                            <constraint firstItem="4gu-Zq-liT" firstAttribute="leading" secondItem="PVL-ST-yfo" secondAttribute="leading" constant="10" id="SDe-xg-36L"/>
+                            <constraint firstItem="4gu-Zq-liT" firstAttribute="top" secondItem="25v-cZ-Zkm" secondAttribute="bottom" constant="100" id="ffe-48-cU8"/>
+                            <constraint firstItem="PVL-ST-yfo" firstAttribute="trailing" secondItem="4gu-Zq-liT" secondAttribute="trailing" constant="10" id="j6p-9S-nl8"/>
+                            <constraint firstItem="25v-cZ-Zkm" firstAttribute="top" secondItem="PVL-ST-yfo" secondAttribute="top" constant="50" id="uRZ-xN-4pF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PVL-ST-yfo"/>
+                    </view>
+                    <connections>
+                        <outlet property="confirmPasswordSignUpTextField" destination="I5h-Fr-ILh" id="jhB-FQ-cXC"/>
+                        <outlet property="emailSignUpTextField" destination="2ma-8R-JuN" id="ebY-rk-O0m"/>
+                        <outlet property="errorLabel" destination="rro-XJ-tXE" id="EPo-S6-cqe"/>
+                        <outlet property="firstNameTextField" destination="dav-wJ-KDQ" id="aOb-Fu-hfL"/>
+                        <outlet property="lastNameTextField" destination="QmK-XD-s2u" id="LLr-hg-Kvo"/>
+                        <outlet property="passwordSignUpTextField" destination="Vdm-Ai-kwn" id="1Sa-h0-2Ef"/>
+                        <outlet property="signUpButton" destination="Kn1-Mg-IU8" id="jXg-VT-RH9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qKN-Qd-lLz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="120" y="161"/>
+        </scene>
+    </scenes>
+</document>
