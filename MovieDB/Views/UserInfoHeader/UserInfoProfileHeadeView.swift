@@ -12,7 +12,7 @@ class UserInfoProfileHeadeView: UIView {
 
     // MARK: - Properties
     
-    let profileImageView: UIImageView = {
+    private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "ironman")
         iv.contentMode = .scaleAspectFill
@@ -29,7 +29,7 @@ class UserInfoProfileHeadeView: UIView {
         return button
     }()
     
-    let nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "Tony Stark"
@@ -38,7 +38,7 @@ class UserInfoProfileHeadeView: UIView {
         return label
     }()
     
-    let emailLabel: UILabel = {
+    private let emailLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "tony.stark@email.com"
@@ -71,6 +71,12 @@ class UserInfoProfileHeadeView: UIView {
         addSubview(emailLabel)
         emailLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         emailLabel.anchor(top: nameLabel.bottomAnchor, paddingTop: 12)
+        
+        print("VIEW")
+    }
+    
+    func getUserName(firstName: String, lastName: String) -> String {
+        return "\(firstName) \(lastName)"
     }
     
     @objc func handleLeftButtonPress() {
@@ -81,6 +87,17 @@ class UserInfoProfileHeadeView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func fillUserData(user: User) {
+        let firstName = user.firstName ?? ""
+        let lastName = user.lastName ?? ""
+        let email = user.email ?? ""
+        
+        let fullName = getUserName(firstName: firstName, lastName: lastName)
+        
+        nameLabel.text = fullName
+        emailLabel.text = email
     }
     
 }

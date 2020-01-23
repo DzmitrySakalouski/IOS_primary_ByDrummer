@@ -13,10 +13,10 @@ class UserManager {
     static let db = Firestore.firestore()
     
     static func saveNewUserData(user: User, completeHandler: @escaping () -> (), showError: @escaping (_ message: String) -> ()) {
-        let firstName = user.firstName
-        let lastName = user.lastName
+        let firstName = user.firstName!
+        let lastName = user.lastName!
         let uuid = user.uuid!
-        self.db.collection("users").addDocument(data: [
+        self.db.collection("users").document(uuid).setData([
             "firstName": firstName,
             "lastName": lastName,
             "uuid": uuid
@@ -27,6 +27,24 @@ class UserManager {
                 return
             } else {
                 completeHandler()
+            }
+        }
+    }
+    
+    static func getUserData(uuid: String, successHandler: @escaping (_ user: User) -> (), showError: @escaping (_ message: String) -> ()) {
+        let userDocumentRef = self.db.collection("users").document(uuid)
+        userDocumentRef.getDocument() {
+            (document, error) in
+            if let error = error {
+                showError(error.localizedDescription)
+                return
+            }
+            if let document = document {
+                let data = document.data()
+                if let data = data {
+                    let user = User(uuid: uuid, userData: data as Dictionary<String, AnyObject>)
+                    successHandler(user)
+                }
             }
         }
     }

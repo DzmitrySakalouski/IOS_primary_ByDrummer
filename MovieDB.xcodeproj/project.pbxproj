@@ -33,6 +33,10 @@
 		4128CD2223D73E1100CDF1C8 /* MenuOptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4128CD2123D73E1100CDF1C8 /* MenuOptionViewCell.swift */; };
 		4128CD2423D74B3600CDF1C8 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4128CD2323D74B3600CDF1C8 /* MenuOption.swift */; };
 		4139E97723D9ACD7002DC6F1 /* UserInfoProfileHeadeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139E97623D9ACD6002DC6F1 /* UserInfoProfileHeadeView.swift */; };
+		4139E97C23D9C171002DC6F1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139E97B23D9C171002DC6F1 /* AppState.swift */; };
+		4139E97F23D9C1AE002DC6F1 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139E97E23D9C1AE002DC6F1 /* AppReducer.swift */; };
+		4139E98123D9DB54002DC6F1 /* UserReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139E98023D9DB54002DC6F1 /* UserReducer.swift */; };
+		4139E98423D9DCA3002DC6F1 /* UserActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139E98323D9DCA3002DC6F1 /* UserActions.swift */; };
 		4141C50523D5AA5B00899BF2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4141C50423D5AA5B00899BF2 /* LoginViewController.swift */; };
 		4141C50923D5AA8F00899BF2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4141C50823D5AA8F00899BF2 /* Login.storyboard */; };
 		4141C50F23D5CDBC00899BF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4141C50E23D5CDBC00899BF2 /* GoogleService-Info.plist */; };
@@ -100,6 +104,10 @@
 		4128CD2123D73E1100CDF1C8 /* MenuOptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionViewCell.swift; sourceTree = "<group>"; };
 		4128CD2323D74B3600CDF1C8 /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
 		4139E97623D9ACD6002DC6F1 /* UserInfoProfileHeadeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProfileHeadeView.swift; sourceTree = "<group>"; };
+		4139E97B23D9C171002DC6F1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		4139E97E23D9C1AE002DC6F1 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		4139E98023D9DB54002DC6F1 /* UserReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReducer.swift; sourceTree = "<group>"; };
+		4139E98323D9DCA3002DC6F1 /* UserActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActions.swift; sourceTree = "<group>"; };
 		4141C50423D5AA5B00899BF2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4141C50823D5AA8F00899BF2 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		4141C50E23D5CDBC00899BF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -194,6 +202,7 @@
 		41083ED523D507FB0069F8AF /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				4139E97823D9C0F9002DC6F1 /* Store */,
 				4128CD1723D72A2200CDF1C8 /* Views */,
 				4103EBDC23D5F78800F3424D /* Models */,
 				4103EBD223D5DDD600F3424D /* Helpers */,
@@ -262,6 +271,33 @@
 				4128CD1E23D7336A00CDF1C8 /* HomeViewControllerDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4139E97823D9C0F9002DC6F1 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				4139E98223D9DC93002DC6F1 /* Actions */,
+				4139E97D23D9C198002DC6F1 /* Reducers */,
+				4139E97B23D9C171002DC6F1 /* AppState.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		4139E97D23D9C198002DC6F1 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				4139E97E23D9C1AE002DC6F1 /* AppReducer.swift */,
+				4139E98023D9DB54002DC6F1 /* UserReducer.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		4139E98223D9DC93002DC6F1 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				4139E98323D9DCA3002DC6F1 /* UserActions.swift */,
+			);
+			path = Actions;
 			sourceTree = "<group>";
 		};
 		4141C50123D5A8F900899BF2 /* Controllers */ = {
@@ -606,11 +642,15 @@
 				4128CD0623D6F53D00CDF1C8 /* Constants.swift in Sources */,
 				4128CD2223D73E1100CDF1C8 /* MenuOptionViewCell.swift in Sources */,
 				4103EBD123D5D3DD00F3424D /* AuthViewController.swift in Sources */,
+				4139E97C23D9C171002DC6F1 /* AppState.swift in Sources */,
 				4162765A23D88E9E0061C955 /* SettingsViewController.swift in Sources */,
 				4103EBDE23D5F79800F3424D /* User.swift in Sources */,
 				4162765123D882330061C955 /* AdsListItemViewCell.swift in Sources */,
+				4139E97F23D9C1AE002DC6F1 /* AppReducer.swift in Sources */,
 				41083ED723D507FB0069F8AF /* AppDelegate.swift in Sources */,
+				4139E98123D9DB54002DC6F1 /* UserReducer.swift in Sources */,
 				4128CD1623D72A1500CDF1C8 /* ProfileViewController.swift in Sources */,
+				4139E98423D9DCA3002DC6F1 /* UserActions.swift in Sources */,
 				41083EE123D507FB0069F8AF /* MovieDB.xcdatamodeld in Sources */,
 				4128CD1F23D7336A00CDF1C8 /* HomeViewControllerDelegate.swift in Sources */,
 				41083ED923D507FB0069F8AF /* SceneDelegate.swift in Sources */,

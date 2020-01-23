@@ -21,14 +21,16 @@ class AuthViewController: UIViewController {
         Auth.auth().addStateDidChangeListener() {
             auth, user in
             if user != nil {
-                self.navigateToHome()
+                if let user = user {
+                    self.navigateToHome(uuid: user.uid)
+                }
             }
         }
     }
     
-    func navigateToHome() { // TODO: move to separate manager
+    func navigateToHome(uuid: String) { // TODO: move to separate manager
         let mainViewController = MainViewController()
-        
+        mainViewController.uuid = uuid
         view.window?.rootViewController = mainViewController
         view.window?.makeKeyAndVisible()
     }

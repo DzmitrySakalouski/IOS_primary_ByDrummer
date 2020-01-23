@@ -8,6 +8,8 @@ class MainViewController: UIViewController {
     var tapRecognizer: UITapGestureRecognizer!
     var swipeRecognizer: UISwipeGestureRecognizer!
     
+    var uuid: String!
+    
     // MARK: - Init
 
     override func viewDidLoad() {
@@ -15,6 +17,8 @@ class MainViewController: UIViewController {
         
         configureHomeController()
         configureMenuController()
+        
+        fetchData()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -96,6 +100,22 @@ class MainViewController: UIViewController {
         navController.definesPresentationContext = true
         navController.extendedLayoutIncludesOpaqueBars = true
         present(navController, animated: true, completion: nil)
+    }
+    
+    func fetchData() {
+        if let uuid = uuid {
+            UserManager.getUserData(uuid: uuid, successHandler: getUserDataSuccessHandler, showError: showError)
+        }
+    }
+    
+    func getUserDataSuccessHandler(user: User) {
+        print("userData")
+        store.dispatch(GetUserActionSuccess(userData: user))
+    }
+    
+    func showError(message: String) {
+        print("message")
+        print(message)
     }
 }
 

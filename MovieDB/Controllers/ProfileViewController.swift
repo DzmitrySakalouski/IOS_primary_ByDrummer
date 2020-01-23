@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import ReSwift
 
 class ProfileViewController: UIViewController {
+    // MARK: - Properties
+    var userHeader: UserInfoProfileHeadeView!
 
     // MARK: - Init
     
@@ -19,11 +22,27 @@ class ProfileViewController: UIViewController {
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        store.subscribe(self){
+            return $0.select { return $0.userState! }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(animated)
+      // 3
+      store.unsubscribe(self)
+    }
+    
 //  TODO override var preferredStatusBarStyle: UIStatusBarStyle { } change style of status bar (light...)
+    
+    // MARK: - Configure
     
     func configureUI() {
         view.backgroundColor = .white
-        let userHeader = UserInfoProfileHeadeView()
+        userHeader = UserInfoProfileHeadeView()
         userHeader.leftButtonHandler = handleDismuss
         
         view.addSubview(userHeader)
@@ -38,17 +57,23 @@ class ProfileViewController: UIViewController {
         self.extendedLayoutIncludesOpaqueBars = true
         
         navigationController?.setNavigationBarHidden(true, animated: false)
-        
-//        view.backgroundColor = .white
-//        navigationController?.navigationBar.backgroundColor = .clear
-//        navigationItem.title = "Profile"
-//
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "baseline_clear_white_36pt_3x").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleDismuss))
     }
     
     // MARK: - Handlers
+    
     func handleDismuss() {
         dismiss(animated: true, completion: nil)
     }
 
+}
+
+extension ProfileViewController: StoreSubscriber {
+    
+    func newState(state: UserState) {
+
+        if let user = state.user {
+            userHeader.fillUserData(user: user)
+        }
+
+    }
 }

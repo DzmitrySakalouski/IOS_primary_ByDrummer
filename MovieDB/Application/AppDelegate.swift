@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 import Firebase
+import ReSwift
+
+var store = Store<AppState>(reducer: appReducer, state: nil)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

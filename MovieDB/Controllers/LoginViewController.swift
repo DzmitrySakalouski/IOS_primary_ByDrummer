@@ -43,12 +43,13 @@ class LoginViewController: UIViewController {
         errorLabel.alpha = 1
     }
     
-    func onLoginSuccess() {
-        navigateToHome()
+    func onLoginSuccess(_ uuid: String) {
+        navigateToHome(uuid)
     }
     
-    func navigateToHome() { // TODO: move to separate manager
+    func navigateToHome(_ uuid: String) { // TODO: move to separate manager
         let mainViewController = MainViewController()
+        mainViewController.uuid = uuid
         
         view.window?.rootViewController = mainViewController
         view.window?.makeKeyAndVisible()

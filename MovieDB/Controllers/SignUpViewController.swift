@@ -25,6 +25,8 @@ class SignUpViewController: UIViewController {
     var password: String = ""
     var confirmPassword: String = ""
     
+    var uuid: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpElements()
@@ -83,13 +85,21 @@ class SignUpViewController: UIViewController {
     }
     
     func saveUserData(_ uuid: String) {
-        let newUser = User(firstName: self.firstName, lastName: self.lastName, phone: nil, email: self.email, uuid: uuid)
+        let userData = [
+            "firstName": self.firstName,
+            "lastName": self.firstName,
+            "email": self.firstName,
+        ]
+        
+        self.uuid = uuid
+        
+        let newUser = User(uuid: uuid, userData: userData as Dictionary<String, AnyObject>)
         UserManager.saveNewUserData(user: newUser, completeHandler: complete, showError: showError)
     }
     
     func navigateToHome() {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainController = mainStoryboard.instantiateViewController(identifier: "Main") as? MainViewController
+        let mainController = MainViewController()
+        mainController.uuid = self.uuid
         
         view.window?.rootViewController = mainController
         view.window?.makeKeyAndVisible()
